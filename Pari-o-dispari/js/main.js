@@ -7,18 +7,16 @@
 
 
 //-----------------------PROGRAMMA PRINCIPALE----------------------------
-//PRENDO GLI INPUT DALL'UTENTE
-let stringEvenOddUserInput = prompt("La somma sarà pari o dispari?");
-stringInputEqualityToRequirementValidation(stringEvenOddUserInput);
-
-let numberUserChoice = prompt("Scegli un numero da 1 a 5");
-isANumberValidation(numberUserChoice);
-
-
-//FORMA GENERALIZZATA VALIDAZIONE NUMERO COMPRESO IN UN INTERVALLO
 let intervalMinimum = 1;
 let intervalMaximum = 5;
-insideTheIntervalValidation(validatedNumber,intervalMinimum,intervalMaximum);
+//PRENDO GLI INPUT DALL'UTENTE
+let evenOddUserInput = evenOddUserChoice();
+
+let validatedNumber = numberFromUser(intervalMinimum, intervalMaximum);
+
+//FORMA GENERALIZZATA VALIDAZIONE NUMERO COMPRESO IN UN INTERVALLO
+
+//insideTheIntervalValidation(validatedNumber, intervalMinimum, intervalMaximum);
 
 
 
@@ -29,22 +27,22 @@ insideTheIntervalValidation(validatedNumber,intervalMinimum,intervalMaximum);
 
 
 //GENERO IL NUMERO CASUALE <=5
-let randomNumber = Math.ceil(Math.random()*5);
+let randomNumber = Math.ceil(Math.random() * 5);
 
 //SOMMO IL NUMERO CASUALE GENERATO E IL NUMERO INSERITO DALL'UTENTE
-let result = numberUserChoice + randomNumber;
+let result = validatedNumber + randomNumber;
 
 let sum = result;
 
 //TODO: VERIFICO LE CONDIZIONI DI VITTORIA
-let evenOrOdd ="";
+let evenOrOdd = "";
 
-if(result%2==0){
+if (result % 2 == 0) {
     evenOrOdd = "pari";
-}else{evenOrOdd= "dispari"}
+} else { evenOrOdd = "dispari" }
 
 //OUTPUT DEL RISULTATO
-console.log("La somma dei due numeri è " + evenOrOdd )
+console.log("La somma dei due numeri è " + evenOrOdd)
 
 
 
@@ -58,33 +56,24 @@ console.log("La somma dei due numeri è " + evenOrOdd )
 //-----------------------------FUNZIONI----------------------------------
 
 //VALIDAZIONE CHE L'INPUT COINCIDA IN STRINGA CON UNO DI DUE VALORI ATTESI (IN QUESTO CASO 'PARI' O 'DISPARI')
-function stringInputEqualityToRequirementValidation(string){
-    while(string!="pari" && string!="dispari"){
-        alert("Il valore inserito non ha significato");
-         string = prompt("Devi inserire 'pari' o 'dispari'");
+function evenOddUserChoice() {
+    let userChoice = "";
+    while (userChoice != "pari" && userChoice != "dispari") {
+        userChoice = prompt("Inserisci 'pari' o 'dispari'");
     }
-    console.log(string)
+
+    return userChoice;
 };
 
-//VALIDAZIONE CHE L'INPUT SIA UN NUMERO
-function isANumberValidation(string){
-    while(isNaN(string)){
-        alert("Il valore inserito non ha significato");
-        string = prompt("Inserisci un numero che sia un numero")
-    }
-
-    string = parseInt(string);
-    console.log(validatedNumber);
-    
-}
-
-//VALIDAZIONE CHE L'INPUT NUMERICO SIA COMPRESO NELL'INTERVALLO 1-5
-
-function insideTheIntervalValidation(number,minimum,maximum){
-    while (number<minimum || number>maximum){
-        alert(`Devi inserire un valore compreso tra ${minimum} e ${maximum}`);
+//VALIDAZIONE CHE L'INPUT SIA UN NUMERO COMPRESO NELL'INTERVALLO 1-5
+function numberFromUser(minimum, maximum) {
+    let number = "";
+    while ((number < minimum || number > maximum || isNaN(number))) {
         number = prompt(`Inserisci un numero compreso tra ${minimum} e ${maximum}`)
+    };
 
-    }
+    return number;
+
 }
+
 
