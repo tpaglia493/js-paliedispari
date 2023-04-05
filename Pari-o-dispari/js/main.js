@@ -9,12 +9,15 @@
 //-----------------------PROGRAMMA PRINCIPALE----------------------------
 //PRENDO GLI INPUT DALL'UTENTE
 let stringEvenOddUserInput = prompt("La somma sarà pari o dispari?");
- stringInputEqualityToRequirementValidation(stringEvenOddUserInput);
+stringInputEqualityToRequirementValidation(stringEvenOddUserInput);
 
 let numberUserChoice = prompt("Scegli un numero da 1 a 5");
+isANumberValidation(numberUserChoice);
 
 
 //TODO: VALIDAZIONE DEGLI INPUT
+
+
 
 
 //GENERO IL NUMERO CASUALE <=5
@@ -52,10 +55,19 @@ function stringInputEqualityToRequirementValidation(string){
         alert("Il valore inserito non ha significato");
          string = prompt("Devi inserire 'pari' o 'dispari'");
     }
+    console.log(string)
 };
 
 //VALIDAZIONE CHE L'INPUT SIA UN NUMERO
-function isANumberValidation
+function isANumberValidation(string){
+    while(isNaN(string)){
+        alert("Il valore inserito non ha significato");
+        string = prompt("Inserisci un numero che sia un numero")
+    }
+
+    string = parseInt(string)
+    console.log(string)
+}
 
 //VALIDAZIONE CHE L'INPUT NUMERICO SIA COMPRESO NELL'INTERVALLO 1-5
 
