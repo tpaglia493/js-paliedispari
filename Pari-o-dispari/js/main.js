@@ -15,6 +15,14 @@ let numberUserChoice = prompt("Scegli un numero da 1 a 5");
 isANumberValidation(numberUserChoice);
 
 
+//FORMA GENERALIZZATA VALIDAZIONE NUMERO COMPRESO IN UN INTERVALLO
+let intervalMinimum = 1;
+let intervalMaximum = 5;
+insideTheIntervalValidation(validatedNumber,intervalMinimum,intervalMaximum);
+
+
+
+
 //TODO: VALIDAZIONE DEGLI INPUT
 
 
@@ -65,9 +73,18 @@ function isANumberValidation(string){
         string = prompt("Inserisci un numero che sia un numero")
     }
 
-    string = parseInt(string)
-    console.log(string)
+    string = parseInt(string);
+    console.log(validatedNumber);
+    
 }
 
 //VALIDAZIONE CHE L'INPUT NUMERICO SIA COMPRESO NELL'INTERVALLO 1-5
+
+function insideTheIntervalValidation(number,minimum,maximum){
+    while (number<minimum || number>maximum){
+        alert(`Devi inserire un valore compreso tra ${minimum} e ${maximum}`);
+        number = prompt(`Inserisci un numero compreso tra ${minimum} e ${maximum}`)
+
+    }
+}
 
