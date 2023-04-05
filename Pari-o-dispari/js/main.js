@@ -8,9 +8,14 @@
 
 //-----------------------PROGRAMMA PRINCIPALE----------------------------
 //PRENDO GLI INPUT DALL'UTENTE
-let evenOddUserChoice = prompt("La somma sarà pari o dispari?");
+let stringEvenOddUserInput = prompt("La somma sarà pari o dispari?");
+ stringInputEqualityToRequirementValidation(stringEvenOddUserInput);
+
 let numberUserChoice = prompt("Scegli un numero da 1 a 5");
+
+
 //TODO: VALIDAZIONE DEGLI INPUT
+
 
 //GENERO IL NUMERO CASUALE <=5
 let randomNumber = Math.ceil(Math.random()*5);
@@ -21,7 +26,11 @@ let result = numberUserChoice + randomNumber;
 let sum = result;
 
 //TODO: VERIFICO LE CONDIZIONI DI VITTORIA
+let evenOrOdd ="";
 
+if(result%2==0){
+    evenOrOdd = "pari";
+}else{evenOrOdd= "dispari"}
 
 //OUTPUT DEL RISULTATO
 console.log("La somma dei due numeri è " + evenOrOdd )
@@ -36,3 +45,17 @@ console.log("La somma dei due numeri è " + evenOrOdd )
 
 
 //-----------------------------FUNZIONI----------------------------------
+
+//VALIDAZIONE CHE L'INPUT COINCIDA IN STRINGA CON UNO DI DUE VALORI ATTESI (IN QUESTO CASO 'PARI' O 'DISPARI')
+function stringInputEqualityToRequirementValidation(string){
+    while(string!="pari" && string!="dispari"){
+        alert("Il valore inserito non ha significato");
+         string = prompt("Devi inserire 'pari' o 'dispari'");
+    }
+};
+
+//VALIDAZIONE CHE L'INPUT SIA UN NUMERO
+function isANumberValidation
+
+//VALIDAZIONE CHE L'INPUT NUMERICO SIA COMPRESO NELL'INTERVALLO 1-5
+
