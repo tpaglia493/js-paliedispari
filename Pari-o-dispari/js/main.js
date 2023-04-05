@@ -14,35 +14,11 @@ let evenOddUserInput = evenOddUserChoice();
 
 let validatedNumber = numberFromUser(intervalMinimum, intervalMaximum);
 
-//FORMA GENERALIZZATA VALIDAZIONE NUMERO COMPRESO IN UN INTERVALLO
 
-//insideTheIntervalValidation(validatedNumber, intervalMinimum, intervalMaximum);
+let randomNumber = randomNumberGenerator(intervalMaximum);
 
+whoWins();
 
-
-
-//TODO: VALIDAZIONE DEGLI INPUT
-
-
-
-
-//GENERO IL NUMERO CASUALE <=5
-let randomNumber = Math.ceil(Math.random() * 5);
-
-//SOMMO IL NUMERO CASUALE GENERATO E IL NUMERO INSERITO DALL'UTENTE
-let result = validatedNumber + randomNumber;
-
-let sum = result;
-
-//TODO: VERIFICO LE CONDIZIONI DI VITTORIA
-let evenOrOdd = "";
-
-if (result % 2 == 0) {
-    evenOrOdd = "pari";
-} else { evenOrOdd = "dispari" }
-
-//OUTPUT DEL RISULTATO
-console.log("La somma dei due numeri è " + evenOrOdd)
 
 
 
@@ -76,4 +52,24 @@ function numberFromUser(minimum, maximum) {
 
 }
 
+//GENERAZIONE DI UN NUMERO RANDOM
 
+function randomNumberGenerator(maximum){
+    let randomNumber = Math.ceil(Math.random() *maximum)
+
+}
+
+//CONTROLLO SE SONO SODDISFATTE LE CONDIZIONI DI VITTORIA
+function whoWins(){
+let sum = validatedNumber + randomNumber;
+let result = "";
+ if (sum%2==0){
+    result = "pari"
+
+ } else{ result = "dispari"}
+
+ if (result == evenOddUserInput){
+    alert("HAI VINTO!! è " +evenOddUserInput  )
+}else{ alert("Hai perso.. la somma non era" +evenOddUserInput )}
+
+}
